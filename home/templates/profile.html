@@ -1,7 +1,12 @@
-<section>
-id : {{request.user.id}}<br/>
-username : {{user.username}}<br/>
-name : {{user.first_name}}<br/>
-lastname : {{user.last_name}}<br/>
+{% extends "all.html" %}
+{% block content %}
 
+<section>
+<div class="mt-5 ">
+    id : {{request.user.id}}<br/>
+    username : {{user.username}}<br/>
+    name : {{user.first_name}}<br/>
+    lastname : {{user.last_name}}<br/>
+</div>
 </section>
+{% endblock content %}
