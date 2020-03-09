@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 from django.shortcuts import render, HttpResponse
+=======
+from django.shortcuts import render, HttpResponse,redirect
+>>>>>>> 10796e44190d4b8c74c15deb1f93c754e1a4c341
 from django.contrib import auth
 from django.contrib.auth.models import User
 # Create your views here.
@@ -18,8 +22,26 @@ def signup(request):
         param = {
             "user" : user
         }
+<<<<<<< HEAD
         return render(request,"profile.html",param)
+=======
+        return redirect("profile",username)
+>>>>>>> 10796e44190d4b8c74c15deb1f93c754e1a4c341
     return render(request,'signup.html')
 
 def login(request):
+    if request.method == "POST":
+        username = request.POST["loginusername"]
+        password = request.POST["loginpassword"]
+        user = auth.authenticate(username=username,password=password)
+        auth.login(request,user)
+
+        return redirect("profile",username)
     return render(request,'profile.html')
+
+def profile(request,username):
+    user = User.objects.get(username=username)
+    param = {
+        "user" : user
+    }
+    return render(request,"profile.html",param)

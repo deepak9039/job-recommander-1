@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" >
     </head>
     <body>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" >
         <a class="navbar-brand" href="#">logo</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -36,9 +36,15 @@
             </li>
           </ul>
           <!-- Button trigger modal -->
+          {% if request.user.is_authenticated %}
+              <a href="{%url 'profile' request.user.username %}" class="btn mr-sm-2 text-light">
+                {{user.username}}
+              </a>
+          {% else %}
               <button type="button" class="btn mr-sm-2 text-light" data-toggle="modal" data-target="#exampleModal">
                 Login / Signup
               </button>
+          {% endif %}
            
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search">
@@ -46,7 +52,8 @@
           </form>
         </div>
       </nav>
-        </form>
+      <div style="padding-top:50px"></div>
+        </form >
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog h-100 d-flex justify-content-center align-items-center" role="document">
