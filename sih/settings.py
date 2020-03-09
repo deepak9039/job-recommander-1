@@ -83,12 +83,12 @@ WSGI_APPLICATION = 'sih.wsgi.application'
 # }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'sql12326913',
-        'USER': 'sql12326913',
-        'PASSWORD': 'hYSZQghwjf',
-        'HOST': 'sql12.freesqldatabase.com',
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': 'db4free.net',
         'PORT': '3306',
+        'NAME': 'jobrem',
+        'USER': 'jobrem',
+        'PASSWORD': 'abhishek',
     }
 }
 
