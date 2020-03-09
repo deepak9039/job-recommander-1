@@ -4,10 +4,7 @@ from . import views
 urlpatterns = [
     path('',views.home,name='home'),
     path('signup',views.signup,name='signup'),
-<<<<<<< HEAD
-    path('profile/',views.login,name='login')
-=======
+    path('profile/',views.login,name='login'),
     path('login/',views.login,name='login'),        
-    path('<str:username>/',views.profile,name='profile')
->>>>>>> 10796e44190d4b8c74c15deb1f93c754e1a4c341
+    path('<str:username>/',views.profile,name='profile'),
  ]
